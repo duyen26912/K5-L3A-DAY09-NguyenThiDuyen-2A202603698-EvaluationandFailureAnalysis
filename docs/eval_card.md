@@ -2,8 +2,8 @@
 
 Card này đi kèm mỗi báo cáo và được dùng lại ở Day 10. Mọi số dưới đây lấy từ `src/reports/*.json` do `python -m lab9.eval` sinh ra (không sửa tay).
 
-- **Run ID / eval set SHA:** baseline `E-swarm-20261117-0ea1` · eval set v1 `0ea10fa7bc54` (v2: `E-swarm-20261117-59db`, `59db1b142525`)
-- **Phiên bản:** code nhánh `starter/d09` · eval set v1 (sha `0ea10fa7bc54`) · metric_spec 1.0 (v2: 2.0) · grader `lab9/graders.py` cùng commit · seeds 11/22/33/44/55 · MockLLM · Python 3.13
+- **Run ID / eval set SHA:** baseline `E-swarm-20261117-130c` · eval set v1 `130cfc81bb8b` (v2: `E-swarm-20261117-867f`, `867f618d51c3`)
+- **Phiên bản:** code nhánh `starter/d09` · eval set v1 (sha `130cfc81bb8b`) · metric_spec 1.0 (v2: 2.0) · grader `lab9/graders.py` cùng commit · seeds 11/22/33/44/55 · MockLLM · Python 3.13
 - **Eval set:** v1, 14 item × 5 seed = 70 trial, nguồn `lab8_public`; nhãn tách riêng ở `labels_v1.json`; mỗi item có `failure_modes` (FM-01…FM-09) và provenance (5 item anchor có `from_trace`).
 - **Metric & ngưỡng** (`config/metric_spec.yaml`):
 
@@ -44,7 +44,7 @@ Card này đi kèm mỗi báo cáo và được dùng lại ở Day 10. Mọi s�
 
 ## v2 (Advanced / Expert)
 
-- **Eval set v2:** 28 item (14 v1 + 14 adversarial pack) × 5 seed, sha `59db1b142525`; `config/fm_map.yaml` map 8 cơ chế tấn công → FM-02…FM-09; `evalset --v2` = 0 problem (mỗi FM bị tấn công ≥3 item).
+- **Eval set v2:** 28 item (14 v1 + 14 adversarial pack) × 5 seed, sha `867f618d51c3`; `config/fm_map.yaml` map 8 cơ chế tấn công → FM-02…FM-09; `evalset --v2` = 0 problem (mỗi FM bị tấn công ≥3 item).
 - **Ngưỡng chọn từ A/A** (`lab9.mutation --aa 66,77,88,99,110`): mọi metric Δ = **0.0000** (MockLLM tất định, seed chỉ làm thay đổi nhánh `seed % 5 == 0` mà cả hai bộ seed đều có 1 seed như vậy). Baseline `pass_hat_5` = 0.8929 → chọn sàn **0.85**: dưới baseline (không chặn nhầm PR trung thực) và ≥ 0.8 như yêu cầu, trên mức `flaky_regression` để lại (0.5714). Với LLM thật, A/A sẽ cho Δ ≠ 0 vì sampling/temperature, thay đổi model phía nhà cung cấp, thứ tự tool call; khi đó phải chạy A/A nhiều lần, lấy dải nhiễu (vd. |Δ| lớn nhất hoặc phân vị 95) và đặt sàn **ngoài** dải đó, nếu không gate sẽ chặn PR trung thực ngẫu nhiên.
 - **Slice nào bắt lỗi nào** (`config/metric_spec_v2.yaml`, tất cả blocking):
 

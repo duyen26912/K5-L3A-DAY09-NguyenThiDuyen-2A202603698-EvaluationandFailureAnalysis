@@ -25,7 +25,7 @@ python -m lab9.trace_case --shape fixed --claim C-008 --seed 11   # đối chứ
 
 | Trường | Nội dung |
 |---|---|
-| Trial | `seeded_regression C-008@11`, report `E-seeded_regression-20261117-0ea1` (item E-008, cả 5 seed đều lỗi) |
+| Trial | `seeded_regression C-008@11`, report `E-seeded_regression-20261117-130c` (item E-008, cả 5 seed đều lỗi) |
 | Triệu chứng | Grader Lab 8 **PASS** (status + ledger đúng). `reply_matches_ledger` FAIL: reply "đã hoàn 35.000đ", ledger chỉ có 20.000đ (host giới hạn theo approval A-008). Khách được hứa 15.000đ không tồn tại. |
 | Bước sai đầu tiên | Event **#5 `reply`** — `"Dạ, LogiX đã hoàn 35.000đ cho đơn O-808."` |
 | Vì sao là bước *đầu tiên* | #1–#2 handoff/investigator đúng đơn O-808 của P-100; #3 quote 35.000 khớp nhãn `proposal_amount=35000`; #4 refund_history = 0 nên bước trừ trước không đổi số đề xuất; host commit 20.000 (đúng nhãn `refund_vnd`). Sai chỉ bắt đầu khi reply lấy **số đề xuất** thay vì **số host đã ghi** (`said = proposal` khi bật `pre_deducted`). |

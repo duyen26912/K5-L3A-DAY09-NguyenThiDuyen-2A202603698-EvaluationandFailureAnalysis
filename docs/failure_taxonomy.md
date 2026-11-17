@@ -1,6 +1,6 @@
 # Failure taxonomy v1
 
-Mọi bằng chứng lấy từ trace thật (MockLLM, eval set v1 `0ea10fa7bc54`, run `E-seeded_regression-20261117-0ea1`), tái hiện bằng:
+Mọi bằng chứng lấy từ trace thật (MockLLM, eval set v1 `130cfc81bb8b`, run `E-seeded_regression-20261117-130c`), tái hiện bằng:
 `python -m lab9.trace_case --shape <shape> --claim <C-xxx> --seed 11`. Với FM mà `seeded_regression` không bật, bằng chứng lấy từ đúng một công tắc lỗi của `lab9/variant_agent.py` chạy trên `fixed` (mỗi lần một lỗi, không sửa variant).
 
 | ID | Tên | Định nghĩa (1 câu) | Layer | Bằng chứng (claim@seed / trace) | Grader | Metric |
